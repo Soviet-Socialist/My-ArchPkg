@@ -20,7 +20,7 @@ echo basis wird installiert
 pacstrap /mnt base base-devel linux linux-firmware dhcpcd nano iwd
 pause
 
-fstab wird generiert
+echo fstab wird generiert
 genfstab -U /mnt > /mnt/etc/fstab
 pause 
 
