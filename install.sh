@@ -11,9 +11,9 @@ echo cfdisk formatierung vornehmen
 echo /dev/sda1 MUSS root sein
 pause
 cfdisk
-
+pause
 echo Partition wird formatiert und gemounted
-mkfs.ext4 /dev/sda1
+mkfs.btrfs /dev/sda1
 mount /dev/sda1 /mnt
 
 echo basis wird installiert
