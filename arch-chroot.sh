@@ -21,14 +21,14 @@ echo de_DE@euro ISO-8859-15 >> /etc/locale.gen
 
 echo locale-gen wird ausgeführt
 locale-gen
-
+echo 
 echo vconsole.conf wird generiert
 echo KEYMAP=de-latin1 > /etc/vconsole.conf
 echo FONT=lat9w-16 >> /etc/vconsole.conf
 
 echo localetime wird generiert
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
-
+echo
 echo hosts wird generiert
 echo 127.0.0.1	localhost.localdomain	localhost >> /etc/hostname
 echo ::1	localhost.localdomain	localhost >> /etc/hostname
@@ -39,18 +39,19 @@ echo
 
 echo bitte legen sie ein root Passwort fest
 passwd root
-
+echo 
 echo syslinux wird installiert
-pacman -S syslinux
+pacman -S gptfdisk syslinux
 echo Bitte folgende ausgabe beachten WICHTIG!!!!!
 
-echo ==> If you want to use syslinux as your bootloader
-echo ==> edit /boot/syslinux/syslinux.cfg and run
-echo ==> # /usr/sbin/syslinux-install_update -i -a -m
-echo ==> to install it.
+echo If you want to use syslinux as your bootloader
+echo edit /boot/syslinux/syslinux.cfg and run
+echo /usr/sbin/syslinux-install_update -i -a -m
+echo to install it.
 pause
 
 echo bitte Syslinux configurieren
+echo wo /dev/sda3 steht /dev/sda1 hinschreiben
 pause
 nano /boot/syslinux/syslinux.cfg
 
